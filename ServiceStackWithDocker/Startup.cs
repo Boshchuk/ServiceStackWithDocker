@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Funq;
 using ServiceStack;
+using ServiceStack.OrmLite;
 using ServiceStack.Configuration;
 using ServiceStackWithDocker.ServiceInterface;
 
@@ -48,9 +49,8 @@ namespace ServiceStackWithDocker
                 DebugMode = AppSettings.Get(nameof(HostConfig.DebugMode), false)
             });
 
-            // 
-            //container.Register<ServiceStack.Data.IDbConnectionFactory>(
-            //    new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider));
+            container.Register<ServiceStack.Data.IDbConnectionFactory>(
+                new OrmLiteConnectionFactory(":memory:", ServiceStack.OrmLite.SqliteDialect.Provider));
         }
     }
 }

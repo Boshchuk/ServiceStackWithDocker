@@ -10,11 +10,11 @@
     <ProjectReference Include="..\ServiceStackWithDocker.ServiceInterface\ServiceStackWithDocker.ServiceInterface.csproj" />
     <ProjectReference Include="..\ServiceStackWithDocker.ServiceModel\ServiceStackWithDocker.ServiceModel.csproj" />
 
-    <PackageReference Include="NUnit" Version="3.10.*" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.10.*" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.*" />
-    <PackageReference Include="ServiceStack" Version="5.*" />
-    <PackageReference Include="ServiceStack.Kestrel" Version="5.*" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.1" />
+    <PackageReference Include="ServiceStack.Core" Version="5.5.0" />
+    <PackageReference Include="ServiceStack.Kestrel.Core" Version="5.5.0" />
   </ItemGroup>
 
 </Project>
