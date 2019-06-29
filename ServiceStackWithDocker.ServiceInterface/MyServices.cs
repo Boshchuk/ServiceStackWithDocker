@@ -1,5 +1,4 @@
-﻿using System;
-using ServiceStack;
+﻿using ServiceStack;
 using ServiceStackWithDocker.ServiceModel;
 
 namespace ServiceStackWithDocker.ServiceInterface

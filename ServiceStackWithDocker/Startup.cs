@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Funq;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Funq;
+using Microsoft.Extensions.DependencyInjection;
 using ServiceStack;
 using ServiceStack.OrmLite;
-using ServiceStack.Configuration;
 using ServiceStackWithDocker.ServiceInterface;
+using ServiceStackWithDocker.ServiceModel;
 
 namespace ServiceStackWithDocker
 {
@@ -49,8 +49,24 @@ namespace ServiceStackWithDocker
                 DebugMode = AppSettings.Get(nameof(HostConfig.DebugMode), false)
             });
 
+            // inmemory data base created here
             container.Register<ServiceStack.Data.IDbConnectionFactory>(
                 new OrmLiteConnectionFactory(":memory:", ServiceStack.OrmLite.SqliteDialect.Provider));
+
+            using (var db = container.Resolve<ServiceStack.Data.IDbConnectionFactory>().OpenDbConnection())
+            {
+                db.CreateTableIfNotExists<Country>();
+                db.InsertAll(CountriesService.SeedData);
+
+                db.CreateTableIfNotExists<Sms>();
+            }
+
+            UseLogSmsSender(Container);
+        }
+
+        private static void UseLogSmsSender(Container container)
+        {
+            container.RegisterAs<LogEmailSender, ISmsSender>().ReusedWithin(ReuseScope.Request);
         }
     }
 }
