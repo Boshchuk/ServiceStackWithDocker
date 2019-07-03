@@ -15,10 +15,10 @@ namespace ServiceStackWithDocker.ServiceModel
         public string Name { get; set; }
 
         [DataMember(Name = "mcc")]
-        public int MobileCountryCode { get; set; }
+        public string MobileCountryCode { get; set; }
 
         [DataMember(Name = "cc")]
-        public int CountryCode { get; set; }
+        public string CountryCode { get; set; }
 
         [DataMember(Name = "pricePerSMS")]
         public decimal PricePerSMS { get; set; }

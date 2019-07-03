@@ -59,14 +59,21 @@ namespace ServiceStackWithDocker
                 db.InsertAll(CountriesService.SeedData);
 
                 db.CreateTableIfNotExists<Sms>();
+                db.InsertAll(SmsService.SeedData);
             }
 
-            UseLogSmsSender(Container);
+            UseLogSmsSender(container);
+            UseDbMccResolver(container);
         }
 
         private static void UseLogSmsSender(Container container)
         {
             container.RegisterAs<LogEmailSender, ISmsSender>().ReusedWithin(ReuseScope.Request);
+        }
+
+        private static void UseDbMccResolver(Container container)
+        {
+            container.RegisterAs<FromStringCountryCodeResolver, ICountryCodeResolver>();
         }
     }
 }

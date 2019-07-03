@@ -10,22 +10,22 @@ namespace ServiceStackWithDocker.ServiceInterface
             new Country() {
                 Id = 1,
                 Name = "Germany",
-                MobileCountryCode = 262,
-                CountryCode = 49,
+                MobileCountryCode = "262",
+                CountryCode = "49",
                 PricePerSMS = 0.055m
             },
              new Country() {
                 Id = 2,
                 Name = "Austria",
-                MobileCountryCode = 232,
-                CountryCode = 43,
+                MobileCountryCode = "232",
+                CountryCode = "43",
                 PricePerSMS = 0.053m
             },
              new Country() {
                 Id = 3,
                 Name = "Poland",
-                MobileCountryCode = 260,
-                CountryCode = 48,
+                MobileCountryCode = "260",
+                CountryCode = "48",
                 PricePerSMS = 0.032m
             },
         };
@@ -38,6 +38,5 @@ namespace ServiceStackWithDocker.ServiceInterface
             //    Results = Db.Select<Country>()
             //};
         }
-
     }
 }

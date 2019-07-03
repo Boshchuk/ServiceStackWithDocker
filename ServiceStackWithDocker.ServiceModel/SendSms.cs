@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using ServiceStack;
+using ServiceStack.DataAnnotations;
 
 namespace ServiceStackWithDocker.ServiceModel
 {
-    [Route("sms/send")] 
+    [Route("/sms/send")] 
     public class SendSms : IReturn<State>
     {
         public string From { get; set; }
@@ -13,7 +14,7 @@ namespace ServiceStackWithDocker.ServiceModel
         public string Text { get; set; }
     }
 
-    [Route("sms/sent")]
+    [Route("/sms/sent")]
     public class SentSms : IReturn<SentSmsResponse>
     {
         public DateTime DateTimeFrom { get; set; }
@@ -25,13 +26,14 @@ namespace ServiceStackWithDocker.ServiceModel
     [DataContract]
     public class Sms
     {
+        [AutoIncrement]
         public int Id { get; set; }
 
         [DataMember(Name = "dateTime")]
         public DateTime DateTime { get; set; }
 
         [DataMember(Name = "mcc")]
-        public int MobileCountryCode { get; set; }
+        public string MobileCountryCode { get; set; }
 
         [DataMember(Name = "from")]
         public string From { get; set; }
@@ -51,4 +53,6 @@ namespace ServiceStackWithDocker.ServiceModel
         public int TotalCoint { get; set; }
         public List<Sms> Items { get; set; }
     }
+
+    
 }
