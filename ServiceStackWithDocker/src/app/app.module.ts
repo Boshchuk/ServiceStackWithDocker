@@ -10,6 +10,11 @@ import { View1Component } from './view1/view1';
 import { View2Component } from './view2/view2';
 
 import { JsonServiceClient } from '@servicestack/client';
+import { CountriesListComponent } from './countries-list/countries-list.component';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 export const routes: Routes = [
   {
@@ -20,6 +25,7 @@ export const routes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home', name: 'Angular 7' } },
   { path: 'view1', component: View1Component },
   { path: 'view2', component: View2Component },
+  { path: 'countries-list', component: CountriesListComponent },
   { path: '**', redirectTo: '/' },
 ];
 
@@ -28,13 +34,16 @@ export const routes: Routes = [
     AppComponent,
     HomeComponent,
     View1Component,
-    View2Component
+    View2Component,
+    CountriesListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    InputsModule,
+    BrowserAnimationsModule
   ],
   providers: [{provide: JsonServiceClient, useValue: new JsonServiceClient('/')}],
   bootstrap: [AppComponent]
