@@ -1,4 +1,4 @@
-﻿using Funq;
+using Funq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -45,7 +45,7 @@ namespace ServiceStackWithDocker
         {
             SetConfig(new HostConfig
             {
-                DefaultRedirectPath = "/metadata",
+                DefaultRedirectPath = "index.html", //"/metadata",
                 DebugMode = AppSettings.Get(nameof(HostConfig.DebugMode), false)
             });
 
