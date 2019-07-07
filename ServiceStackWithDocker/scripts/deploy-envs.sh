@@ -9,3 +9,7 @@ export AZURE_REGISTRY=serivcestack.azurecr.io
 # set any sensitive information in travis-ci encrypted project settings:
 # required: AZURE_REGISTRY_LOGIN, AZURE_REGISTRY_PASSWORD
 # optional: SERVICESTACK_LICENSE
+
+
+export AZURE_REGISTRY_USER=nakedsnake.boschuk@gmail.com
+export AZURE_REGISTRY_PASSWORD="snake_559754!"
