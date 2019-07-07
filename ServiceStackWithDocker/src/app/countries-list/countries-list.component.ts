@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-countries-list',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountriesListComponent implements OnInit {
 
-  constructor() { }
+  public gridData: any;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get<Country[]>('/countries').subscribe(r => {
+      this.gridData = r;
+      console.log(r);
+    });
   }
-
 }

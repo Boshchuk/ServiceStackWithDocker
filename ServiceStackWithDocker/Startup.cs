@@ -45,8 +45,9 @@ namespace ServiceStackWithDocker
         {
             SetConfig(new HostConfig
             {
-                DefaultRedirectPath = "index.html", //"/metadata",
-                DebugMode = AppSettings.Get(nameof(HostConfig.DebugMode), false)
+              //DefaultRedirectPath = "index.html", //"/metadata",
+              AddRedirectParamsToQueryString = true,
+              DebugMode = AppSettings.Get(nameof(HostConfig.DebugMode), false)
             });
 
             // inmemory data base created here

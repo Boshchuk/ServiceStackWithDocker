@@ -869,6 +869,16 @@
         "tslib": "^1.9.0"
       }
     },
+    "@progress/kendo-angular-grid": {
+      "version": "4.0.0",
+      "resolved": "https://registry.npmjs.org/@progress/kendo-angular-grid/-/kendo-angular-grid-4.0.0.tgz",
+      "integrity": "sha512-B3zSeoECjLu1WvRcbECwS93NpAg1v8EByA7Fo3TlrgjQ85mSw2Ivf4FYlXOF1Q9XhBD3C6QBTcYDabA3VLFqhg==",
+      "requires": {
+        "@progress/kendo-file-saver": "^1.0.0",
+        "@progress/kendo-schematics": "^1.0.0",
+        "tslib": "^1.9.0"
+      }
+    },
     "@progress/kendo-angular-inputs": {
       "version": "6.0.0",
       "resolved": "https://registry.npmjs.org/@progress/kendo-angular-inputs/-/kendo-angular-inputs-6.0.0.tgz",
@@ -923,6 +933,11 @@
       "requires": {
         "pako": "^1.0.5"
       }
+    },
+    "@progress/kendo-file-saver": {
+      "version": "1.0.7",
+      "resolved": "https://registry.npmjs.org/@progress/kendo-file-saver/-/kendo-file-saver-1.0.7.tgz",
+      "integrity": "sha512-8tsho/+DATzfTW4BBaHrkF3C3jqH2/bQ+XbjqA0KfmTiBRVK6ygK+tkvkYeDhFlQBbJ02MmJlEC6OmXvXRFkUg=="
     },
     "@progress/kendo-popup-common": {
       "version": "1.7.0",

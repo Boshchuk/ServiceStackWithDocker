@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { GridModule } from '@progress/kendo-angular-grid';
+
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home';
 import { View1Component } from './view1/view1';
@@ -43,7 +46,8 @@ export const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     InputsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    GridModule
   ],
   providers: [{provide: JsonServiceClient, useValue: new JsonServiceClient('/')}],
   bootstrap: [AppComponent]
