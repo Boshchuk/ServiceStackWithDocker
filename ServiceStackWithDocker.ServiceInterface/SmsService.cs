@@ -106,16 +106,26 @@ namespace ServiceStackWithDocker.ServiceInterface
 
         public object Get(SentSms request)
         {
+            if (request.DateTimeTo.Ticks == 0)
+            {
+                request.DateTimeTo = DateTime.MaxValue;
+            }
             var expression = Db.From<Sms>()
-                .Where(s => (s.DateTime >= request.DateTimeFrom && s.DateTime <= request.DateTimeTo))
+              //  .Where(s => (s.DateTime.Ticks >= request.DateTimeFrom.Ticks && s.DateTime.Ticks <= request.DateTimeTo.Ticks))
                 .Skip(request.Skip)
-                .Take(request.Take);
+                .Take(request.Take)
+              //.Select(x=>new {x, Total = Sql.Count("*") })
+                ;
 
             var expressionResult = Db.Select(expression);
 
+            var countExpression = Db.From<Sms>().Select("COUNT(*)");
+            var totalCount = Db.Select<int>(countExpression).First();
+
+
             return new SentSmsResponse
             {
-                TotalCoint = expressionResult.Count,
+                TotalCoint = totalCount,
                 Items = expressionResult
             };
         }

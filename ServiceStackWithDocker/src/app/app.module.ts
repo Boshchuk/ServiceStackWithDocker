@@ -16,6 +16,7 @@ import { JsonServiceClient } from '@servicestack/client';
 import { CountriesListComponent } from './countries-list/countries-list.component';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MessageBrowserComponent } from './message-browser/message-browser.component';
 
 
 
@@ -26,7 +27,7 @@ export const routes: Routes = [
       pathMatch: 'full'
   },
   { path: '', component: HomeComponent, data: { title: 'Home', name: 'Angular 7' } },
-  { path: 'view1', component: View1Component },
+  { path: 'message-browser', component: MessageBrowserComponent },
   { path: 'view2', component: View2Component },
   { path: 'countries-list', component: CountriesListComponent },
   { path: '**', redirectTo: '/' },
@@ -38,7 +39,8 @@ export const routes: Routes = [
     HomeComponent,
     View1Component,
     View2Component,
-    CountriesListComponent
+    CountriesListComponent,
+    MessageBrowserComponent
   ],
   imports: [
     BrowserModule,
